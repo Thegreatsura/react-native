@@ -1,10 +1,13 @@
 import { StyleSheet } from "react-native";
 
 import { Text, View } from "@/components/Themed";
+import { customColor } from "@/constants/Colors";
 
 export default function TabTwoScreen() {
   return (
-    <View style={styles.container}>
+    <View
+      style={[{ backgroundColor: customColor.PureWhite }, styles.container]}
+    >
       <Text style={styles.title}> Settings 📱</Text>
     </View>
   );

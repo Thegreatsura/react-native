@@ -1,28 +1,101 @@
-import { StyleSheet, TouchableOpacity } from "react-native";
+import {
+  FlatList,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 
 import { Text, View } from "@/components/Themed";
 import { useRouter } from "expo-router";
 import PrimaryButton from "@/components/PrimaryButton";
+import { customColor } from "@/constants/Colors";
+import ChatRow from "@/components/ChatRow";
+import SafeArea from "@/components/safe-area";
+
+const chats = [
+  {
+    id: "1",
+    from: "sura",
+    msg: "Ullamco nostrud velit reprehenderit exercitation labore laboris consequat ex magna nostrud.",
+    read: true,
+    unreadCount: 2,
+  },
+  {
+    id: "2",
+    from: "sura",
+    msg: "Ullamco nostrud velit reprehenderit exercitation labore laboris consequat ex magna nostrud.",
+    read: true,
+    unreadCount: 2,
+  },
+  {
+    id: "3",
+    from: "sura",
+    msg: "Ullamco nostrud velit reprehenderit exercitation labore laboris consequat ex magna nostrud.",
+    read: true,
+    unreadCount: 2,
+  },
+  {
+    id: "4",
+    from: "sura",
+    msg: "Ullamco nostrud velit reprehenderit exercitation labore laboris consequat ex magna nostrud.",
+    read: true,
+    unreadCount: 2,
+  },
+  {
+    id: "5",
+    from: "sura",
+    msg: "Ullamco nostrud velit reprehenderit exercitation labore laboris consequat ex magna nostrud.",
+    read: true,
+    unreadCount: 2,
+  },
+];
 
 export default function TabOneScreen() {
   const router = useRouter();
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Chats 🚀</Text>
-      <PrimaryButton
-        label="chat"
-        onPress={() => {
-          router.push("/(myapp)/chat");
-        }}
-      />
-    </View>
+    <SafeArea>
+      <View
+        style={[
+          {
+            backgroundColor: customColor.PureWhite,
+          },
+          styles.container,
+        ]}
+      >
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          contentContainerStyle={{
+            paddingBottom: 40,
+            marginTop: 60,
+            flex: 1,
+            backgroundColor: "#fff",
+          }}
+        >
+          <FlatList
+            data={[...chats, ...chats]}
+            renderItem={({ item }) => <ChatRow {...item} />}
+            keyExtractor={(item) => item.id.toString()}
+            ItemSeparatorComponent={() => (
+              <View
+                style={{
+                  marginLeft: 90,
+                  height: StyleSheet.hairlineWidth,
+                  backgroundColor: customColor.FogGray,
+                }}
+              />
+            )}
+            scrollEnabled={false}
+          />
+        </ScrollView>
+      </View>
+    </SafeArea>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
     justifyContent: "center",
   },
   title: {

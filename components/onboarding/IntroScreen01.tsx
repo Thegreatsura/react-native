@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Pressable } from "react-native";
 import React from "react";
 // import { RootStackScreenProps } from "../navigators/RootNavigator";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -9,27 +9,42 @@ import ScreenIndicators from "../ScreenIndicators";
 import PrimaryButton from "../PrimaryButton";
 import { useRouter } from "expo-router";
 import Icons from "@expo/vector-icons/MaterialIcons";
+import { customColor } from "@/constants/Colors";
 
 // import Animated, { FadeInDown, FadeInUp } from "react-native-reanimated";
 
 const IntroScreen01 = () => {
   const theme = useTheme();
-  const router = useRouter()
+  const router = useRouter();
   return (
-    <SafeAreaView style={{ backgroundColor: theme.colors.card, flex: 1 }}>
-       <View
-          //   entering={FadeInUp.duration(1000).springify()}
+    <View style={{ backgroundColor: theme.colors.card, flex: 1 }}>
+      <View
+        //   entering={FadeInUp.duration(1000).springify()}
+        style={{
+          paddingHorizontal: 24,
+          height: 52,
+          alignItems: "center",
+          flexDirection: "row",
+        }}
+      >
+        <Pressable
+          onPress={() => router.back()}
           style={{
-            paddingHorizontal: 24,
-            height: 52,
+            width: 40,
+            height: 40,
+            padding: 10,
             alignItems: "center",
-            flexDirection: "row",
+            justifyContent: "center",
           }}
         >
-          <TouchableOpacity onPress={() => router.back()}>
-            <Icons name="arrow-back-ios" size={24} color={theme.colors.text} />
-          </TouchableOpacity>
-        </View>
+          <Icons
+            name="arrow-back-ios"
+            style={{ textAlign: "center" }}
+            size={24}
+            color={theme.colors.text}
+          />
+        </Pressable>
+      </View>
       <View
         // entering={FadeInUp.duration(1000).springify()}
         style={{ alignItems: "center", flex: 1, justifyContent: "center" }}
@@ -55,7 +70,7 @@ const IntroScreen01 = () => {
           {INTRO_SCREEN_01.description}
         </Text>
         <View
-          // entering={FadeInDown.delay(200).duration(1000).springify()}
+        // entering={FadeInDown.delay(200).duration(1000).springify()}
         >
           <ScreenIndicators count={2} activeIndex={0} />
         </View>
@@ -69,7 +84,7 @@ const IntroScreen01 = () => {
           />
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

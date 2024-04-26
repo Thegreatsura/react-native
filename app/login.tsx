@@ -4,19 +4,23 @@ import {
   TouchableOpacity,
   TextInput,
   KeyboardAvoidingView,
+  Platform,
   useWindowDimensions,
+  Pressable,
 } from "react-native";
 import React from "react";
 // import { RootStackScreenProps } from "../navigators/RootNavigator";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useTheme } from "@react-navigation/native";
 import Icons from "@expo/vector-icons/MaterialIcons";
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 // import Artwork03 from "../components/artworks/Artwork03";
 import { LOG_IN_SCREEN } from "../utils/constants";
 import PrimaryButton from "../components/PrimaryButton";
 import { useRouter } from "expo-router";
+import { customColor } from "@/constants/Colors";
+import SafeArea from "@/components/safe-area";
 // import Animated, { FadeInDown, FadeInUp } from "react-native-reanimated";
 
 const Login = () => {
@@ -25,10 +29,12 @@ const Login = () => {
   const router = useRouter();
 
   return (
-    <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
-      <SafeAreaView
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={{ flex: 1 }}
+    >
+      <SafeArea
         style={{
-          flex: 1,
           backgroundColor: theme.colors.card,
           minHeight: dimensions.height,
         }}
@@ -43,9 +49,18 @@ const Login = () => {
             flexDirection: "row",
           }}
         >
-          <TouchableOpacity onPress={() => router.back()}>
+          <Pressable
+            style={{
+              width: 40,
+              height: 40,
+              padding: 10,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            onPress={() => router.back()}
+          >
             <Icons name="arrow-back-ios" size={24} color={theme.colors.text} />
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
         <View
@@ -81,9 +96,12 @@ const Login = () => {
           >
             {LOG_IN_SCREEN.description}
 
-            <TouchableOpacity style={{ marginLeft: 10 }} onPress={() => router.push("/help")}>
-              <AntDesign name="infocirlce" size={24} color="black" />
-            </TouchableOpacity> 
+            <TouchableOpacity
+              style={{ marginLeft: 10 }}
+              onPress={() => router.push("/help")}
+            >
+              <AntDesign name="infocirlce" size={10} color="black" />
+            </TouchableOpacity>
           </Text>
 
           <View style={{ alignItems: "center", gap: 16, marginTop: 32 }}>
@@ -96,7 +114,7 @@ const Login = () => {
                 style={{
                   fontSize: 16,
                   fontWeight: "500",
-                  color: theme.dark ? '#626D77' : theme.colors.text,
+                  color: theme.dark ? customColor.FogGray : theme.colors.text,
                   paddingLeft: 48,
                   paddingRight: 12,
                   height: 48,
@@ -127,7 +145,7 @@ const Login = () => {
                 style={{
                   fontSize: 16,
                   fontWeight: "500",
-                  color: theme.dark ? '#626D77' : theme.colors.text,
+                  color: theme.dark ? customColor.FogGray : theme.colors.text,
                   paddingLeft: 48,
                   paddingRight: 12,
                   height: 48,
@@ -157,7 +175,7 @@ const Login = () => {
                 style={{
                   fontSize: 16,
                   fontWeight: "500",
-                  color: theme.dark ? '#626D77' : theme.colors.text,
+                  color: theme.dark ? customColor.FogGray : theme.colors.text,
                   paddingLeft: 48,
                   paddingRight: 12,
                   height: 48,
@@ -181,11 +199,14 @@ const Login = () => {
             <View
             //   entering={FadeInDown.delay(600).duration(1000).springify()}
             >
-              <PrimaryButton label="Log In" onPress={() => router.push("/(tabs)")} />
+              <PrimaryButton
+                label="Log In"
+                onPress={() => router.push("/(tabs)")}
+              />
             </View>
           </View>
         </View>
-      </SafeAreaView>
+      </SafeArea>
     </KeyboardAvoidingView>
   );
 };

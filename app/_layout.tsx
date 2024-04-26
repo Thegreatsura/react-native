@@ -63,26 +63,36 @@ function RootLayoutNav() {
           name="help"
           options={{ presentation: "card", headerShown: false }}
         />
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="login" options={{ headerShown: false }} />
-        <Stack.Screen name="screen01" options={{ headerShown: false }} />
-        <Stack.Screen name="screen02" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="index"
+          options={{ headerShown: false, presentation: "card" }}
+        />
+        <Stack.Screen
+          name="login"
+          options={{ headerShown: false, presentation: "containedModal" }}
+        />
+        <Stack.Screen
+          name="screen01"
+          options={{ headerShown: false, presentation: "formSheet" }}
+        />
+        <Stack.Screen
+          name="screen02"
+          options={{ headerShown: false, presentation: "fullScreenModal" }}
+        />
         <Stack.Screen
           name="(myapp)/account"
           options={{
+            headerShown: false,
             presentation: "transparentModal",
             animation: "fade",
             title: "",
             headerTransparent: true,
-            headerLeft: () => null,
-            headerRight: () => (
-              <TouchableOpacity onPress={router.back} style={{ margin: 30 }}>
-                <Ionicons name="close-outline" size={34} color={"#fff"} />
-              </TouchableOpacity>
-            ),
           }}
         />
-        <Stack.Screen name="(myapp)/chat" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="(myapp)/chat"
+          options={{ headerShown: false, presentation: "fullScreenModal" }}
+        />
       </Stack>
     </ThemeProvider>
   );

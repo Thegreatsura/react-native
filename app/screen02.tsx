@@ -1,9 +1,14 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import IntroScreen02 from '@/components/onboarding/IntroScreen02'
+import { View, Text } from "react-native";
+import React from "react";
+import IntroScreen02 from "@/components/onboarding/IntroScreen02";
+import SafeArea from "@/components/safe-area";
 
 const Page = () => {
-  return <IntroScreen02 />
-}
+  return (
+    <SafeArea>
+      <IntroScreen02 />
+    </SafeArea>
+  );
+};
 
-export default Page
+export default Page;
