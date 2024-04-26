@@ -1,4 +1,10 @@
-import { View, Text, TouchableOpacity, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Pressable,
+  useColorScheme,
+} from "react-native";
 import React from "react";
 // import { RootStackScreenProps } from "../navigators/RootNavigator";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -16,35 +22,9 @@ import { customColor } from "@/constants/Colors";
 const IntroScreen01 = () => {
   const theme = useTheme();
   const router = useRouter();
+  const theneMode = useColorScheme();
   return (
-    <View style={{ backgroundColor: theme.colors.card, flex: 1 }}>
-      <View
-        //   entering={FadeInUp.duration(1000).springify()}
-        style={{
-          paddingHorizontal: 24,
-          height: 52,
-          alignItems: "center",
-          flexDirection: "row",
-        }}
-      >
-        <Pressable
-          onPress={() => router.back()}
-          style={{
-            width: 40,
-            height: 40,
-            padding: 10,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Icons
-            name="arrow-back-ios"
-            style={{ textAlign: "center" }}
-            size={24}
-            color={theme.colors.text}
-          />
-        </Pressable>
-      </View>
+    <View style={{ backgroundColor: customColor.PureWhite, flex: 1 }}>
       <View
         // entering={FadeInUp.duration(1000).springify()}
         style={{ alignItems: "center", flex: 1, justifyContent: "center" }}
@@ -54,7 +34,11 @@ const IntroScreen01 = () => {
       <View style={{ padding: 24 }}>
         <Text
           // entering={FadeInDown.duration(1000).springify()}
-          style={{ fontSize: 40, fontWeight: "800", color: theme.colors.text }}
+          style={{
+            fontSize: 40,
+            fontWeight: "800",
+            color: customColor.CoalBlack,
+          }}
         >
           {INTRO_SCREEN_01.title}
         </Text>

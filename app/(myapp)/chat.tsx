@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { ImageBackground, Pressable, View } from "react-native";
+import { ImageBackground, Pressable, View, useColorScheme } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import {
   GiftedChat,
@@ -19,6 +19,7 @@ import { customColor } from "@/constants/Colors";
 export default function Example() {
   const router = useRouter();
   const theme = useTheme();
+  const themeMode = useColorScheme();
   const [messages, setMessages] = useState<any>([]);
   const insets = useSafeAreaInsets();
   const [text, setText] = useState("");
@@ -84,7 +85,13 @@ export default function Example() {
           }}
         >
           <Pressable onPress={() => router.back()}>
-            <Icons name="arrow-back-ios" size={24} color={theme.colors.text} />
+            <Icons
+              name="arrow-back-ios"
+              size={24}
+              color={
+                themeMode === "dark" ? theme.colors.text : customColor.FogGray
+              }
+            />
           </Pressable>
         </View>
         <GiftedChat

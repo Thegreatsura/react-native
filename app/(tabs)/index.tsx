@@ -63,31 +63,21 @@ export default function TabOneScreen() {
           styles.container,
         ]}
       >
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          contentContainerStyle={{
-            paddingBottom: 40,
-            marginTop: 60,
-            flex: 1,
-            backgroundColor: "#fff",
-          }}
-        >
-          <FlatList
-            data={[...chats, ...chats]}
-            renderItem={({ item }) => <ChatRow {...item} />}
-            keyExtractor={(item) => item.id.toString()}
-            ItemSeparatorComponent={() => (
-              <View
-                style={{
-                  marginLeft: 90,
-                  height: StyleSheet.hairlineWidth,
-                  backgroundColor: customColor.FogGray,
-                }}
-              />
-            )}
-            scrollEnabled={false}
-          />
-        </ScrollView>
+        <FlatList
+          style={{ paddingTop: 60 }}
+          data={[...chats, ...chats, ...chats]}
+          renderItem={({ item }) => <ChatRow {...item} />}
+          keyExtractor={(item) => item.id.toString()}
+          ItemSeparatorComponent={() => (
+            <View
+              style={{
+                marginLeft: 90,
+                height: StyleSheet.hairlineWidth,
+                backgroundColor: customColor.FogGray,
+              }}
+            />
+          )}
+        />
       </View>
     </SafeArea>
   );

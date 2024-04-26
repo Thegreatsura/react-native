@@ -15,11 +15,11 @@ const Index = () => {
   const theme = useTheme();
 
   const onNavigation = () => {
-    router.push("/screen01");
+    router.replace("/screen01");
   };
 
   return (
-    <View style={styles.container}>
+    <SafeArea>
       <StatusBar style="auto" />
 
       <ImageBackground
@@ -39,7 +39,7 @@ const Index = () => {
           style={styles.button}
         />
       </ImageBackground>
-    </View>
+    </SafeArea>
   );
 };
 

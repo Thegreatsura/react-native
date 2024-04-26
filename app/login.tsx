@@ -7,11 +7,12 @@ import {
   Platform,
   useWindowDimensions,
   Pressable,
+  useColorScheme,
 } from "react-native";
 import React from "react";
 // import { RootStackScreenProps } from "../navigators/RootNavigator";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { useTheme } from "@react-navigation/native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import Icons from "@expo/vector-icons/MaterialIcons";
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
@@ -27,12 +28,11 @@ const Login = () => {
   const theme = useTheme();
   const dimensions = useWindowDimensions();
   const router = useRouter();
+  const themeMode = useColorScheme();
+  console.log(themeMode);
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-      style={{ flex: 1 }}
-    >
+    <KeyboardAwareScrollView style={{ flex: 1 }}>
       <SafeArea
         style={{
           backgroundColor: theme.colors.card,
@@ -97,10 +97,16 @@ const Login = () => {
             {LOG_IN_SCREEN.description}
 
             <TouchableOpacity
-              style={{ marginLeft: 10 }}
+              style={{
+                marginLeft: 10,
+                width: 40,
+                height: 40,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
               onPress={() => router.push("/help")}
             >
-              <AntDesign name="infocirlce" size={10} color="black" />
+              <AntDesign name="infocirlce" size={15} color="black" />
             </TouchableOpacity>
           </Text>
 
@@ -114,7 +120,10 @@ const Login = () => {
                 style={{
                   fontSize: 16,
                   fontWeight: "500",
-                  color: theme.dark ? customColor.FogGray : theme.colors.text,
+                  color:
+                    themeMode === "dark"
+                      ? theme.colors.text
+                      : customColor.FogGray,
                   paddingLeft: 48,
                   paddingRight: 12,
                   height: 48,
@@ -145,7 +154,10 @@ const Login = () => {
                 style={{
                   fontSize: 16,
                   fontWeight: "500",
-                  color: theme.dark ? customColor.FogGray : theme.colors.text,
+                  color:
+                    themeMode === "dark"
+                      ? theme.colors.text
+                      : customColor.FogGray,
                   paddingLeft: 48,
                   paddingRight: 12,
                   height: 48,
@@ -175,7 +187,10 @@ const Login = () => {
                 style={{
                   fontSize: 16,
                   fontWeight: "500",
-                  color: theme.dark ? customColor.FogGray : theme.colors.text,
+                  color:
+                    themeMode === "dark"
+                      ? theme.colors.text
+                      : customColor.FogGray,
                   paddingLeft: 48,
                   paddingRight: 12,
                   height: 48,
@@ -201,13 +216,13 @@ const Login = () => {
             >
               <PrimaryButton
                 label="Log In"
-                onPress={() => router.push("/(tabs)")}
+                onPress={() => router.replace("/(tabs)")}
               />
             </View>
           </View>
         </View>
       </SafeArea>
-    </KeyboardAvoidingView>
+    </KeyboardAwareScrollView>
   );
 };
 
