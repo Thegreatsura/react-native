@@ -1,7 +1,6 @@
 import {
   View,
   Text,
-  TouchableOpacity,
   TextInput,
   KeyboardAvoidingView,
   Platform,
@@ -16,7 +15,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import Icons from "@expo/vector-icons/MaterialIcons";
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
-// import Artwork03 from "../components/artworks/Artwork03";
+import Artwork03 from "../components/ artworks/Artwork03";
 import { LOG_IN_SCREEN } from "../utils/constants";
 import PrimaryButton from "../components/PrimaryButton";
 import { useRouter } from "expo-router";
@@ -29,13 +28,12 @@ const Login = () => {
   const dimensions = useWindowDimensions();
   const router = useRouter();
   const themeMode = useColorScheme();
-  console.log(themeMode);
 
   return (
     <KeyboardAwareScrollView style={{ flex: 1 }}>
       <SafeArea
         style={{
-          backgroundColor: theme.colors.card,
+          backgroundColor: customColor.PureWhite,
           minHeight: dimensions.height,
         }}
       >
@@ -57,7 +55,7 @@ const Login = () => {
               alignItems: "center",
               justifyContent: "center",
             }}
-            onPress={() => router.back()}
+            onPress={() => router.replace("/screen02")}
           >
             <Icons name="arrow-back-ios" size={24} color={theme.colors.text} />
           </Pressable>
@@ -71,7 +69,7 @@ const Login = () => {
             justifyContent: "center",
           }}
         >
-          {/* <Artwork03 width={240} height={240} /> */}
+          <Artwork03 width={240} height={240} />
         </View>
 
         <View style={{ padding: 24 }}>
@@ -91,12 +89,12 @@ const Login = () => {
               opacity: 0.5,
               marginTop: 16,
               fontSize: 16,
-              color: theme.colors.text,
+              color: customColor.CoalBlack,
             }}
           >
             {LOG_IN_SCREEN.description}
 
-            <TouchableOpacity
+            <Pressable
               style={{
                 marginLeft: 10,
                 width: 40,
@@ -104,10 +102,10 @@ const Login = () => {
                 alignItems: "center",
                 justifyContent: "center",
               }}
-              onPress={() => router.push("/help")}
+              onPress={() => router.replace("/help")}
             >
               <AntDesign name="infocirlce" size={15} color="black" />
-            </TouchableOpacity>
+            </Pressable>
           </Text>
 
           <View style={{ alignItems: "center", gap: 16, marginTop: 32 }}>

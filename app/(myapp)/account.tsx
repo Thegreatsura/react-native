@@ -3,9 +3,9 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
   Image,
   TextInput,
+  Pressable,
 } from "react-native";
 import { BlurView } from "expo-blur";
 import Colors from "@/constants/Colors";
@@ -41,9 +41,9 @@ const Account = () => {
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <View />
 
-          <TouchableOpacity onPress={router.back} style={{ marginRight: 10 }}>
+          <Pressable onPress={router.back} style={{ marginRight: 10 }}>
             <Ionicons name="close-outline" size={34} color={"#fff"} />
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </SafeArea>
     </BlurView>

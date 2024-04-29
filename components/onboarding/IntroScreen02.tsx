@@ -1,10 +1,4 @@
-import {
-  View,
-  SafeAreaView,
-  TouchableOpacity,
-  Text,
-  Pressable,
-} from "react-native";
+import { View, SafeAreaView, Text, Pressable } from "react-native";
 import React from "react";
 // import { RootStackScreenProps } from "../navigators/RootNavigator";
 import { useTheme } from "@react-navigation/native";
@@ -15,13 +9,13 @@ import Icons from "@expo/vector-icons/MaterialIcons";
 import { useRouter } from "expo-router";
 import { customColor } from "@/constants/Colors";
 // import Animated, { FadeInDown, FadeInUp } from "react-native-reanimated";
-// import Artwork02 from "../components/artworks/Artwork02";
+import Artwork02 from "../ artworks/Artwork02";
 
 const IntroScreen02 = () => {
   const theme = useTheme();
   const router = useRouter();
   return (
-    <View style={{ backgroundColor: theme.colors.card, flex: 1 }}>
+    <View style={{ backgroundColor: customColor.PureWhite, flex: 1 }}>
       <View
         // entering={FadeInUp.duration(1000).springify()}
         style={{
@@ -39,7 +33,7 @@ const IntroScreen02 = () => {
             alignItems: "center",
             justifyContent: "center",
           }}
-          onPress={() => router.back()}
+          onPress={() => router.replace("/screen01")}
         >
           <Icons name="arrow-back-ios" size={24} color={theme.colors.text} />
         </Pressable>
@@ -48,7 +42,7 @@ const IntroScreen02 = () => {
         // entering={FadeInUp.delay(200).duration(1000).springify()}
         style={{ alignItems: "center", flex: 1, justifyContent: "center" }}
       >
-        {/* <Artwork02 width={300} height={300} /> */}
+        <Artwork02 width={300} height={300} />
       </View>
       <View style={{ padding: 24 }}>
         <Text
@@ -63,7 +57,7 @@ const IntroScreen02 = () => {
             opacity: 0.5,
             marginTop: 16,
             fontSize: 16,
-            color: theme.colors.text,
+            color: customColor.CoalBlack,
           }}
         >
           {INTRO_SCREEN_02.description}
@@ -78,7 +72,10 @@ const IntroScreen02 = () => {
           // entering={FadeInDown.delay(400).duration(1000).springify()}
           style={{ alignItems: "center" }}
         >
-          <PrimaryButton label="Next" onPress={() => router.push("/login")} />
+          <PrimaryButton
+            label="Next"
+            onPress={() => router.replace("/login")}
+          />
         </View>
       </View>
     </View>

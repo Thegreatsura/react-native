@@ -1,9 +1,4 @@
-import {
-  FlatList,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
+import { FlatList, ScrollView, StyleSheet } from "react-native";
 
 import { Text, View } from "@/components/Themed";
 import { useRouter } from "expo-router";

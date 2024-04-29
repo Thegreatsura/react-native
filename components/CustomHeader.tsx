@@ -1,12 +1,6 @@
 import Colors, { customColor } from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, StyleSheet, TextInput, Pressable } from "react-native";
 // import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { BlurView } from "expo-blur";
@@ -16,7 +10,7 @@ const CustomHeader = () => {
   const { top } = useSafeAreaInsets();
 
   return (
-    <BlurView intensity={80} tint={"extraLight"} style={{ paddingTop: top }}>
+    <BlurView intensity={90} tint={"extraLight"} style={{ paddingTop: top }}>
       <View
         style={[
           styles.container,
@@ -46,7 +40,7 @@ const CustomHeader = () => {
           />
         </View>
         <Link href={"/(myapp)/account"} asChild>
-          <TouchableOpacity
+          <Pressable
             style={{
               width: 40,
               height: 40,
@@ -65,7 +59,7 @@ const CustomHeader = () => {
             >
               SG
             </Text>
-          </TouchableOpacity>
+          </Pressable>
         </Link>
       </View>
     </BlurView>

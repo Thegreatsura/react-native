@@ -23,7 +23,7 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: "#FF4F18",
         tabBarStyle: {
-          backgroundColor: "transparent",
+          // backgroundColor: "transparent",
           position: "absolute",
           bottom: 0,
           left: 0,

@@ -1,10 +1,4 @@
-import {
-  Text,
-  TouchableOpacity,
-  ViewStyle,
-  StyleProp,
-  TextStyle,
-} from "react-native";
+import { Text, ViewStyle, StyleProp, TextStyle, Pressable } from "react-native";
 import React from "react";
 import { useTheme } from "@react-navigation/native";
 import { customColor } from "@/constants/Colors";
@@ -22,7 +16,7 @@ const PrimaryButton = ({
 }) => {
   const theme = useTheme();
   return (
-    <TouchableOpacity
+    <Pressable
       style={[
         {
           backgroundColor: customColor.RadiantOrange,
@@ -44,7 +38,7 @@ const PrimaryButton = ({
       >
         {label}
       </Text>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 

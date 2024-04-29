@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Pressable } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
 import { useTheme } from "@react-navigation/native";
@@ -29,7 +29,7 @@ const Help = () => {
             alignItems: "center",
             justifyContent: "center",
           }}
-          onPress={() => router.back()}
+          onPress={() => router.replace("/login")}
         >
           <Icons name="arrow-back-ios" size={24} color={theme.colors.text} />
         </Pressable>
@@ -45,6 +45,32 @@ const Help = () => {
       >
         user support page
       </Text>
+      <View style={{ alignItems: "center", justifyContent: "center" }}>
+        <Pressable
+          style={{
+            width: 40,
+            height: 40,
+            padding: 10,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          onPress={() => router.replace("/onboarding")}
+        >
+          <Text>onboarding</Text>
+        </Pressable>
+        <Pressable
+          style={{
+            width: 40,
+            height: 40,
+            padding: 10,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          onPress={() => router.replace("/onboard")}
+        >
+          <Text>onboard</Text>
+        </Pressable>
+      </View>
     </SafeArea>
   );
 };

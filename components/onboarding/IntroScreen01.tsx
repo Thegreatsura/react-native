@@ -1,15 +1,9 @@
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Pressable,
-  useColorScheme,
-} from "react-native";
+import { View, Text, Pressable, useColorScheme } from "react-native";
 import React from "react";
 // import { RootStackScreenProps } from "../navigators/RootNavigator";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { INTRO_SCREEN_01 } from "../../utils/constants";
-// import Artwork01 from "../components/artworks/Artwork01";
+import Artwork01 from "../ artworks/Artwork01";
 import { useTheme } from "@react-navigation/native";
 import ScreenIndicators from "../ScreenIndicators";
 import PrimaryButton from "../PrimaryButton";
@@ -29,7 +23,7 @@ const IntroScreen01 = () => {
         // entering={FadeInUp.duration(1000).springify()}
         style={{ alignItems: "center", flex: 1, justifyContent: "center" }}
       >
-        {/* <Artwork01 width={300} height={300} /> */}
+        <Artwork01 width={300} height={300} />
       </View>
       <View style={{ padding: 24 }}>
         <Text
@@ -48,7 +42,7 @@ const IntroScreen01 = () => {
             opacity: 0.5,
             marginTop: 16,
             fontSize: 16,
-            color: theme.colors.text,
+            color: customColor.CoalBlack,
           }}
         >
           {INTRO_SCREEN_01.description}
@@ -64,7 +58,7 @@ const IntroScreen01 = () => {
         >
           <PrimaryButton
             label="Next"
-            onPress={() => router.push("/screen02")}
+            onPress={() => router.replace("/screen02")}
           />
         </View>
       </View>

@@ -8,7 +8,10 @@ export default function TabTwoScreen() {
     <View
       style={[{ backgroundColor: customColor.PureWhite }, styles.container]}
     >
-      <Text style={styles.title}> Settings 📱</Text>
+      <Text style={[{ color: customColor.CoalBlack }, styles.title]}>
+        {" "}
+        Settings 📱
+      </Text>
     </View>
   );
 }

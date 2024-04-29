@@ -11,7 +11,6 @@ import { useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 
 import { useColorScheme } from "@/components/useColorScheme";
-import { TouchableOpacity } from "react-native";
 import { useRouter } from "expo-router";
 
 export {
@@ -93,6 +92,8 @@ function RootLayoutNav() {
           name="(myapp)/chat"
           options={{ headerShown: false, presentation: "fullScreenModal" }}
         />
+        <Stack.Screen name="onboarding" options={{ headerShown: false }} />
+        <Stack.Screen name="onboard" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
   );
