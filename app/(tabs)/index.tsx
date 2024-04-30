@@ -60,7 +60,7 @@ export default function TabOneScreen() {
       >
         <FlatList
           style={{ paddingTop: 60 }}
-          data={[...chats, ...chats, ...chats]}
+          data={[...chats]}
           renderItem={({ item }) => <ChatRow {...item} />}
           keyExtractor={(item) => item.id.toString()}
           ItemSeparatorComponent={() => (

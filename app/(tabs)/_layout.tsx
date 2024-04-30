@@ -6,6 +6,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import CustomHeader from "@/components/CustomHeader";
 import { Ionicons } from "@expo/vector-icons";
+import { customColor } from "@/constants/Colors";
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
@@ -23,7 +24,7 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: "#FF4F18",
         tabBarStyle: {
-          // backgroundColor: "transparent",
+          backgroundColor: customColor.FogGray,
           position: "absolute",
           bottom: 0,
           left: 0,

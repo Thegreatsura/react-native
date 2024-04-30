@@ -1,6 +1,14 @@
 import Colors, { customColor } from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
-import { View, Text, StyleSheet, TextInput, Pressable } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Pressable,
+  Image,
+} from "react-native";
 // import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { BlurView } from "expo-blur";
@@ -23,7 +31,7 @@ const CustomHeader = () => {
         ]}
       >
         <View style={styles.circle}>
-          <Ionicons name={"card"} size={20} color={customColor.CoalBlack} />
+          <AntDesign name="plus" size={24} color={customColor.CoalBlack} />
         </View>
 
         <View style={styles.searchSection}>
@@ -50,15 +58,16 @@ const CustomHeader = () => {
               alignItems: "center",
             }}
           >
-            <Text
+            <Image
               style={{
-                color: customColor.RadiantOrange,
-                fontWeight: "500",
-                fontSize: 16,
+                width: 40,
+                height: 40,
+                borderRadius: 20,
+                justifyContent: "center",
+                alignItems: "center",
               }}
-            >
-              SG
-            </Text>
+              source={require("../assets/images/sura.jpg")}
+            />
           </Pressable>
         </Link>
       </View>

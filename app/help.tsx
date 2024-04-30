@@ -2,8 +2,8 @@ import { View, Text, Pressable } from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
 import { useTheme } from "@react-navigation/native";
-import Icons from "@expo/vector-icons/MaterialIcons";
 import SafeArea from "@/components/safe-area";
+import { Ionicons } from "@expo/vector-icons";
 import { customColor } from "@/constants/Colors";
 
 const Help = () => {
@@ -11,7 +11,7 @@ const Help = () => {
   const theme = useTheme();
 
   return (
-    <SafeArea>
+    <SafeArea style={{ backgroundColor: customColor.PureWhite }}>
       <View
         //   entering={FadeInUp.duration(1000).springify()}
         style={{
@@ -28,10 +28,13 @@ const Help = () => {
             padding: 10,
             alignItems: "center",
             justifyContent: "center",
+            alignContent: "center",
+            backgroundColor: customColor.FogGray,
+            borderRadius: 20,
           }}
           onPress={() => router.replace("/login")}
         >
-          <Icons name="arrow-back-ios" size={24} color={theme.colors.text} />
+          <Ionicons name="arrow-back" size={24} color={customColor.CoalBlack} />
         </Pressable>
       </View>
       <Text
@@ -54,9 +57,9 @@ const Help = () => {
             alignItems: "center",
             justifyContent: "center",
           }}
-          onPress={() => router.replace("/onboarding")}
+          onPress={() => router.push("/onboarding")}
         >
-          <Text>onboarding</Text>
+          <Text style={{ color: customColor.CoalBlack }}>onboarding</Text>
         </Pressable>
         <Pressable
           style={{
@@ -66,9 +69,9 @@ const Help = () => {
             alignItems: "center",
             justifyContent: "center",
           }}
-          onPress={() => router.replace("/onboard")}
+          onPress={() => router.push("/onboard")}
         >
-          <Text>onboard</Text>
+          <Text style={{ color: customColor.CoalBlack }}>onboard</Text>
         </Pressable>
       </View>
     </SafeArea>

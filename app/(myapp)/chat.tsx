@@ -10,7 +10,8 @@ import {
   IMessage,
 } from "react-native-gifted-chat";
 import { Ionicons } from "@expo/vector-icons";
-import Icons from "@expo/vector-icons/MaterialIcons";
+import { FontAwesome } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
 import { useTheme } from "@react-navigation/native";
 import { useRouter } from "expo-router";
 import SafeArea from "@/components/safe-area";
@@ -18,24 +19,12 @@ import { customColor } from "@/constants/Colors";
 
 export default function Example() {
   const router = useRouter();
-  const theme = useTheme();
-  const themeMode = useColorScheme();
   const [messages, setMessages] = useState<any>([]);
   const insets = useSafeAreaInsets();
   const [text, setText] = useState("");
 
   useEffect(() => {
     setMessages([
-      {
-        _id: 0,
-        system: true,
-        text: "All your base are belong to us",
-        createdAt: new Date(),
-        user: {
-          _id: 0,
-          name: "Bot",
-        },
-      },
       {
         _id: 1,
         text: "Hello developer",
@@ -79,18 +68,49 @@ export default function Example() {
           //   entering={FadeInUp.duration(1000).springify()}
           style={{
             paddingHorizontal: 24,
+            justifyContent: "space-between",
             height: 52,
             alignItems: "center",
             flexDirection: "row",
           }}
         >
-          <Pressable onPress={() => router.back()}>
-            <Icons
-              name="arrow-back-ios"
+          <Pressable
+            style={{
+              width: 40,
+              height: 40,
+              padding: 10,
+              alignItems: "center",
+              justifyContent: "center",
+              alignContent: "center",
+              backgroundColor: customColor.FogGray,
+              borderRadius: 20,
+            }}
+            onPress={() => router.back()}
+          >
+            <Ionicons
+              name="arrow-back"
               size={24}
-              color={
-                themeMode === "dark" ? theme.colors.text : customColor.FogGray
-              }
+              color={customColor.CoalBlack}
+            />
+          </Pressable>
+
+          <Pressable
+            style={{
+              width: 40,
+              height: 40,
+              padding: 10,
+              alignItems: "center",
+              justifyContent: "center",
+              alignContent: "center",
+              backgroundColor: customColor.FogGray,
+              borderRadius: 20,
+            }}
+            // onPress={() => router.back()}
+          >
+            <MaterialIcons
+              name="more-vert"
+              size={24}
+              color={customColor.CoalBlack}
             />
           </Pressable>
         </View>
@@ -120,12 +140,6 @@ export default function Example() {
               />
             );
           }}
-          renderSystemMessage={(props) => (
-            <SystemMessage
-              {...props}
-              textStyle={{ color: customColor.CoalBlack }}
-            />
-          )}
           bottomOffset={insets.bottom}
           onInputTextChanged={setText}
           renderSend={(props) => (
@@ -147,7 +161,8 @@ export default function Example() {
                     justifyContent: "center",
                   }}
                 >
-                  <Ionicons name="send" color="#FF4F18" size={28} />
+                  <FontAwesome name="send" size={24} color="#FF4F18" />
+                  {/* <Ionicons name="send" color="#FF4F18" size={28} /> */}
                 </Send>
               )}
             </View>
@@ -156,7 +171,10 @@ export default function Example() {
             return (
               <InputToolbar
                 {...props}
-                containerStyle={{ backgroundColor: "#F2F4F7" }}
+                containerStyle={{
+                  backgroundColor: "#F2F4F7",
+                  paddingHorizontal: 5,
+                }}
                 renderActions={() => (
                   <View
                     style={{

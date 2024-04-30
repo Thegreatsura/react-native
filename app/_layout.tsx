@@ -79,6 +79,10 @@ function RootLayoutNav() {
           options={{ headerShown: false, presentation: "fullScreenModal" }}
         />
         <Stack.Screen
+          name="screen03"
+          options={{ headerShown: false, presentation: "fullScreenModal" }}
+        />
+        <Stack.Screen
           name="(myapp)/account"
           options={{
             headerShown: false,

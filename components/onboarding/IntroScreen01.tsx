@@ -2,7 +2,7 @@ import { View, Text, Pressable, useColorScheme } from "react-native";
 import React from "react";
 // import { RootStackScreenProps } from "../navigators/RootNavigator";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { INTRO_SCREEN_01 } from "../../utils/constants";
+import { INTRO_SCREEN_00 } from "../../utils/constants";
 import Artwork01 from "../ artworks/Artwork01";
 import { useTheme } from "@react-navigation/native";
 import ScreenIndicators from "../ScreenIndicators";
@@ -34,7 +34,7 @@ const IntroScreen01 = () => {
             color: customColor.CoalBlack,
           }}
         >
-          {INTRO_SCREEN_01.title}
+          {INTRO_SCREEN_00.title}
         </Text>
         <Text
           // entering={FadeInDown.delay(100).duration(1000).springify()}
@@ -45,12 +45,12 @@ const IntroScreen01 = () => {
             color: customColor.CoalBlack,
           }}
         >
-          {INTRO_SCREEN_01.description}
+          {INTRO_SCREEN_00.description}
         </Text>
         <View
         // entering={FadeInDown.delay(200).duration(1000).springify()}
         >
-          <ScreenIndicators count={2} activeIndex={0} />
+          <ScreenIndicators count={3} activeIndex={0} />
         </View>
         <View
           // entering={FadeInDown.delay(400).duration(1000).springify()}

@@ -4,14 +4,14 @@ import React from "react";
 import { useTheme } from "@react-navigation/native";
 import PrimaryButton from "../PrimaryButton";
 import ScreenIndicators from "../ScreenIndicators";
-import { INTRO_SCREEN_01 } from "../../utils/constants";
+import { INTRO_SCREEN_02 } from "../../utils/constants";
 import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { customColor } from "@/constants/Colors";
 // import Animated, { FadeInDown, FadeInUp } from "react-native-reanimated";
 import Artwork02 from "../ artworks/Artwork02";
 
-const IntroScreen02 = () => {
+const IntroScreen03 = () => {
   const theme = useTheme();
   const router = useRouter();
   return (
@@ -36,7 +36,7 @@ const IntroScreen02 = () => {
             backgroundColor: customColor.FogGray,
             borderRadius: 20,
           }}
-          onPress={() => router.replace("/screen01")}
+          onPress={() => router.replace("/screen02")}
         >
           <Ionicons name="arrow-back" size={24} color={customColor.CoalBlack} />
         </Pressable>
@@ -45,7 +45,7 @@ const IntroScreen02 = () => {
         // entering={FadeInUp.delay(200).duration(1000).springify()}
         style={{ alignItems: "center", flex: 1, justifyContent: "center" }}
       >
-        <Artwork02 width={300} height={300} />
+        {/* <Artwork02 width={300} height={300} /> */}
       </View>
       <View style={{ padding: 24 }}>
         <Text
@@ -56,7 +56,7 @@ const IntroScreen02 = () => {
             color: customColor.CoalBlack,
           }}
         >
-          {INTRO_SCREEN_01.title}
+          {INTRO_SCREEN_02.title}
         </Text>
 
         <Text
@@ -67,12 +67,12 @@ const IntroScreen02 = () => {
             color: customColor.CoalBlack,
           }}
         >
-          {INTRO_SCREEN_01.description}
+          {INTRO_SCREEN_02.description}
         </Text>
         <View
         // entering={FadeInDown.delay(200).duration(1000).springify()}
         >
-          <ScreenIndicators count={3} activeIndex={1} />
+          <ScreenIndicators count={3} activeIndex={2} />
         </View>
 
         <View
@@ -80,8 +80,8 @@ const IntroScreen02 = () => {
           style={{ alignItems: "center" }}
         >
           <PrimaryButton
-            label="Nextt"
-            onPress={() => router.replace("/screen03")}
+            label="Next"
+            onPress={() => router.replace("/login")}
           />
         </View>
       </View>
@@ -89,4 +89,4 @@ const IntroScreen02 = () => {
   );
 };
 
-export default IntroScreen02;
+export default IntroScreen03;

@@ -13,6 +13,7 @@ import React from "react";
 import { useTheme } from "@react-navigation/native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import Icons from "@expo/vector-icons/MaterialIcons";
+import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import Artwork03 from "../components/ artworks/Artwork03";
@@ -30,7 +31,7 @@ const Login = () => {
   const themeMode = useColorScheme();
 
   return (
-    <KeyboardAwareScrollView style={{ flex: 1 }}>
+    <KeyboardAwareScrollView style={{ flex: 1 }} enableOnAndroid>
       <SafeArea
         style={{
           backgroundColor: customColor.PureWhite,
@@ -54,10 +55,17 @@ const Login = () => {
               padding: 10,
               alignItems: "center",
               justifyContent: "center",
+              alignContent: "center",
+              backgroundColor: customColor.FogGray,
+              borderRadius: 20,
             }}
             onPress={() => router.replace("/screen02")}
           >
-            <Icons name="arrow-back-ios" size={24} color={theme.colors.text} />
+            <Ionicons
+              name="arrow-back"
+              size={24}
+              color={customColor.CoalBlack}
+            />
           </Pressable>
         </View>
 
@@ -69,7 +77,7 @@ const Login = () => {
             justifyContent: "center",
           }}
         >
-          <Artwork03 width={240} height={240} />
+          {/* <Artwork03 width={240} height={240} /> */}
         </View>
 
         <View style={{ padding: 24 }}>
@@ -78,7 +86,7 @@ const Login = () => {
             style={{
               fontSize: 40,
               fontWeight: "800",
-              color: theme.colors.text,
+              color: customColor.CoalBlack,
             }}
           >
             {LOG_IN_SCREEN.title}
@@ -89,6 +97,8 @@ const Login = () => {
               opacity: 0.5,
               marginTop: 16,
               fontSize: 16,
+              alignItems: "center",
+              justifyContent: "center",
               color: customColor.CoalBlack,
             }}
           >
@@ -118,15 +128,12 @@ const Login = () => {
                 style={{
                   fontSize: 16,
                   fontWeight: "500",
-                  color:
-                    themeMode === "dark"
-                      ? theme.colors.text
-                      : customColor.FogGray,
+                  color: customColor.CoalBlack,
                   paddingLeft: 48,
                   paddingRight: 12,
                   height: 48,
                   borderRadius: 12,
-                  backgroundColor: theme.colors.background,
+                  backgroundColor: customColor.FogGray,
                   width: "100%",
                 }}
               />
@@ -152,15 +159,12 @@ const Login = () => {
                 style={{
                   fontSize: 16,
                   fontWeight: "500",
-                  color:
-                    themeMode === "dark"
-                      ? theme.colors.text
-                      : customColor.FogGray,
+                  color: customColor.CoalBlack,
                   paddingLeft: 48,
                   paddingRight: 12,
                   height: 48,
                   borderRadius: 12,
-                  backgroundColor: theme.colors.background,
+                  backgroundColor: customColor.FogGray,
                   width: "100%",
                 }}
               />
@@ -185,15 +189,12 @@ const Login = () => {
                 style={{
                   fontSize: 16,
                   fontWeight: "500",
-                  color:
-                    themeMode === "dark"
-                      ? theme.colors.text
-                      : customColor.FogGray,
+                  color: customColor.CoalBlack,
                   paddingLeft: 48,
                   paddingRight: 12,
                   height: 48,
                   borderRadius: 12,
-                  backgroundColor: theme.colors.background,
+                  backgroundColor: customColor.FogGray,
                   width: "100%",
                 }}
               />

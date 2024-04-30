@@ -8,7 +8,7 @@ import {
   Pressable,
 } from "react-native";
 import { BlurView } from "expo-blur";
-import Colors from "@/constants/Colors";
+import Colors, { customColor } from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 import SafeArea from "@/components/safe-area";
 import { useRouter } from "expo-router";
@@ -41,8 +41,17 @@ const Account = () => {
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <View />
 
-          <Pressable onPress={router.back} style={{ marginRight: 10 }}>
-            <Ionicons name="close-outline" size={34} color={"#fff"} />
+          <Pressable
+            onPress={router.back}
+            style={{
+              marginRight: 10,
+            }}
+          >
+            <Ionicons
+              name="close-outline"
+              size={34}
+              color={customColor.CoalBlack}
+            />
           </Pressable>
         </View>
       </SafeArea>
