@@ -9,7 +9,7 @@ export const INTRO_SCREEN_01 = {
     "Unlock the power of advanced AI features, crafted to amplify your productivity and enhance your daily experiences.",
 };
 export const INTRO_SCREEN_02 = {
-  title: "Smarter, Together",
+  title: "Smarter Together",
   description:
     "Join the Sura-ai community, where AI-driven innovation meets human collaboration. Experience the power of collective intelligence.",
 };
@@ -20,6 +20,5 @@ export const INTRO_SCREEN_03 = {
 };
 export const LOG_IN_SCREEN = {
   title: "Let's\nGet Started",
-  description:
-    "Welcome back! Please enter your login details to access your account.",
+  description: "kindly enter your details to login",
 };

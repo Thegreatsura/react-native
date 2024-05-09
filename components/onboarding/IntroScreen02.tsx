@@ -29,12 +29,10 @@ const IntroScreen02 = () => {
           style={{
             width: 40,
             height: 40,
-            padding: 10,
-            alignItems: "center",
-            justifyContent: "center",
-            alignContent: "center",
+            borderRadius: 30,
             backgroundColor: customColor.FogGray,
-            borderRadius: 20,
+            justifyContent: "center",
+            alignItems: "center",
           }}
           onPress={() => router.replace("/screen01")}
         >
